@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<title>登录</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css"/><!--样式初始化-->
+	<link rel="stylesheet" type="text/css" href="css/index.css"/><!--登录样式-->
+	<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+	<script src="js/vue.js"></script>
+	<script src="js/axios.min.js"></script>
+	<script>
+		var num=60;
+		function ccc1(){
+			
+			num--;
+			
+			document.getElementById("d123").innerText=num+"s后重新获取";
+			//document.getElementById("d123").style.display=""
+			if (num>0) {
+				setTimeout("ccc1()",1000);
+			} else{
+				document.getElementById("d123").innerText="获取验证码";
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<p class="logotitle">HIS平台</p>
+	<div class="loginbigbox" id="d1">
+		<div class="loginbox">
+			<div class="lrow">
+				<i class="iconfont">&#xe613;</i><input autofocus="autofocus" class="jsusername iscolor" type="text" placeholder="请输入用户名" v-model="uname"/>
+			</div>
+			<div class="lrow">
+				<i class="iconfont">&#xe61d;</i><input class="jsuserpass iscolor" type="password" placeholder="请输入密码" v-model="upwd"/>
+			</div>
+			<div class="lrow lrow2">
+				<input id="jsreginp" class="reginp iscolor" type="text" placeholder="请输入验证码"/>
+				<em id="d123" class="jsgetnum" onclick="ccc1();">获取验证码</em>
+			</div>
+			<div class="lrow lrowsub"><b id="loginbtn" @click="dl();">登陆</b></div>
+		</div>
+	</div>
+	<script>
+		var app1=new Vue({
+			el:'#d1',
+			data:{
+				uname:"",
+				upwd:""
+			},
+			methods:{
+				dl:function(){
+					axios.get("login.jspx?uname="+this.uname+"&upwd="+this.upwd).then((res)=>{
+						var j=res.data;
+						if(j.msg=="error"){
+							alert("登陆失败，请检查账号密码");
+						}else{
+							window.localStorage.setItem("uid",j.id);
+							window.localStorage.setItem("realname",j.realname);
+							alert("登陆成功，正在跳转……");
+							window.location.href="index.html";
+						}
+					});
+					
+				}
+			}
+		});
+	</script>
+	
+</body>
+</html>

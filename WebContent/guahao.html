@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+		<script src="js/axios.min.js"></script>
+	</head>
+	<body>
+		<div id="d123">
+			<div style="width: 100%;height:30px;">
+				<div style="float:left;width:30%;height: 100%;">患者姓名：</div>
+				<div style="float:left;width: 68%;height: 100%;"><input type="text" placeholder="请输入姓名" v-model="tg.gname"/></div>
+			</div>
+			<div style="width: 100%;height:30px;">
+				<div style="float:left;width:30%;height: 100%;">患者年龄：</div>
+				<div style="float:left;width: 68%;height: 100%;"><input type="text" placeholder="请输入年龄" v-model="tg.gage"/></div>
+			</div>
+			<div style="width: 100%;height:30px;">
+				<div style="float:left;width:30%;height: 100%;">患者性别：</div>
+				<div style="float:left;width: 68%;height: 100%;">
+					<select v-model="tg.gxb">
+						<option value="男" selected="selected">男</option>
+						<option value="女">女</option>
+					</select>
+				</div>
+			</div>
+			<div style="width: 100%;height:30px;">
+				<div style="float:left;width:30%;height: 100%;">证件类型</div>
+				<div style="float:left;width: 68%;height: 100%;">
+					<select v-model="tg.ztype">
+						<option value="身份证" selected="selected">身份证</option>
+						<option value="医保卡">医保卡</option>
+					</select>
+				</div>
+			</div>
+			<div style="width: 100%;height:30px;">
+				<div style="float:left;width:30%;height: 100%;">{{tg.ztype}}号</div>
+				<div style="float:left;width: 68%;height: 100%;"><input type="text" v-model="tg.znum"/></div>
+			</div>
+			<div style="width: 100%;height:30px;">
+				<div style="float:left;width:30%;height: 100%;">科室：</div>
+				<div style="float:left;width: 68%;height: 100%;">
+						
+					<select @change="cc1($event);">
+						<option value="" selected="selected">请选择</option>
+						<option :value="k.id" v-for="k in tks">{{k.kname}}</option>
+					</select>
+				</div>
+			</div>
+			
+			<div style="width: 100%;height:30px;">
+				<div style="float:left;width:30%;height: 100%;">挂号类型：</div>
+				<div style="float:left;width: 68%;height: 100%;">
+					<select v-model="tg.gtype">
+						<option value="普通号" selected="selected">普通号</option>
+						<option value="专家号">专家号</option>
+					</select>
+				</div>
+			</div>
+			<div style="width: 100%;height:30px;">
+				<button @click="tj();">提交</button>
+			</div>
+			
+		</div>
+		<script>
+			var app12=new Vue({
+				el:'#d123',
+				data:{
+					tks:[],
+					tg:{
+						gname:"",
+						gage:"",
+						gxb:"",
+						ztype:"",
+						znum:"",
+						kid:"",
+						kname:"",
+						gtype:""
+					}
+				},
+				created:function(){
+					axios.get("allks.jspx").then((res)=>{
+						app12.tks=res.data;
+					});
+				},
+				methods:{
+					cc1:function(event){
+						var i1=event.target.value;
+						for (var i = 0; i < this.tks.length; i++) {
+							if(this.tks[i].id==i1){
+								this.tg.kid=i1;
+								this.tg.kname=this.tks[i].kname;
+								break;
+							}
+						}
+						//alert(this.tg.kname);
+					},
+					tj:function(){
+						axios({
+							 method:"post",
+							 url:"savetg.jspx",
+							 params:this.tg
+							 }).then(()=>{
+								 alert("chenggong");
+							 });
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,419 @@
+body{  
+    line-height:1.4;  
+    color:#333;  
+    font-family:arial;  
+    font-size: 12px;  
+}  
+input,textarea,select{  
+    font-size:100%;      
+    font-family:inherit;  
+}  
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,form{  
+    margin:0;  
+}  
+h4,h5,h6{  
+    font-size:1em;  
+}  
+ul,ol{  
+    padding-left:0;   
+    list-style-type:none;  
+}  
+img{border:0;}  
+a, a:hover, a:focus {
+    text-decoration: none;
+    outline: none;
+}
+i{font-style: normal;}
+b{font-weight: normal;}
+
+
+
+			/*左侧导航公用*/
+			/* 以上实际使用若已初始化可删除 */
+			
+			#navn>div {
+				display: inline-block;
+				vertical-align: top;
+			}
+			/* nav */
+			
+			.nav-top {
+				border-bottom: 1px solid rgba(255, 255, 255, .1);
+			}
+			
+			.nav-top .nav-toptxt {
+				border-bottom: 1px solid rgba(255, 255, 255, .1);
+				color: #fff;
+				font-size: 30px;
+				width: 60px;
+				text-align: center;
+				cursor: pointer;
+			}
+			
+			.nav {
+				width: 220px;
+				height: 100%;
+				background: #144B85;
+				transition: all .3s;
+				overflow: auto;
+				padding-top: 50px;
+    			box-sizing: border-box;
+			}
+			
+			.nav a {
+				display: block;
+				overflow: hidden;
+				padding-left: 20px;
+				line-height: 46px;
+				max-height: 46px;
+				color: #fff;
+				transition: all .3s;
+			}
+			
+			.nav a span {
+				margin-left: 30px;
+			}
+			
+			.nav-item {
+				position: relative;
+			}
+			
+			.nav-item.nav-show {
+				border-bottom: none;
+			}
+			
+			.nav-item ul {
+				display: none;
+				background: rgba(0, 0, 0, .1);
+			}
+			
+			.nav-item.nav-show ul {
+				display: block;
+			}
+			
+			.nav-item>a:before {
+				content: "";
+				position: absolute;
+				left: 0px;
+				width: 2px;
+				height: 46px;
+				background: #34A0CE;
+				opacity: 0;
+				transition: all .3s;
+			}
+			
+			.nav .nav-icon {
+				font-size: 20px;
+				position: absolute;
+				margin-left: -1px;
+				top: 14px;
+			}
+			/* 此处修改导航图标 可自定义iconfont 替换*/
+			
+			.icon_1::after {
+				content: "";
+				display: block;
+				width: 20px;
+				height: 20px;
+				/*background: url(../img/mena0.png)no-repeat;*/
+			}
+			
+			.nav-item:nth-child(1) .icon_1::after {
+				    background: url(../img/mena1.png)no-repeat;
+				background-size: 100% 100%;
+			}
+			
+			.nav-item:nth-child(2) .icon_1::after {
+				background: url(../img/mena2.png)no-repeat;
+				background-size: 100% 100%;
+			}
+			
+			.nav-item:nth-child(3) .icon_1::after {
+				background: url(../img/mena3.png)no-repeat;
+				background-size: 100% 100%;
+			}
+			.nav-item:nth-child(4) .icon_1::after {
+				background: url(../img/mena4.png)no-repeat;
+				background-size: 100% 100%;
+			}
+			.nav-item:nth-child(5) .icon_1::after {
+				background: url(../img/mena5.png)no-repeat;
+				background-size: 100% 100%;
+			}
+			.nav-item:nth-child(6) .icon_1::after {
+				background: url(../img/mena6.png)no-repeat;
+				background-size: 100% 100%;
+			}
+			/*.nav-item:nth-child(2) .icon_1::after{background: url(men1.png)no-repeat;}*/
+			/*.icon_2::after{content: "\e669";}*/
+			/*.icon_3::after{content: "\e61d";}*/
+			/*---------------------*/
+			
+			.nav-more {
+				float: right;
+				margin-right: 20px;
+				font-size: 12px;
+				transition: transform .3s;
+			}
+			/* 此处为导航右侧箭头 如果自定义iconfont 也需要替换*/
+			
+			.nav-more::after {
+				content: ">";
+				color: #fff;
+				font-style: normal;
+				font-family: SimSun;
+			}
+			/*---------------------*/
+			
+			.nav-show .nav-more {
+				transform: rotate(90deg);
+			}
+			
+			.nav-show,
+			.nav-item>a:hover {
+				color: #2AF8CB;
+			}
+			
+			.nav-show>a:before,
+			.nav-item>a:hover:before {
+				opacity: 1;
+			}
+			
+			.nav-item li:hover a {
+				color: #FFF;
+				background: #3399FF;
+			}
+			/* nav-mini */
+			
+			.nav-mini.nav {
+				width: 60px;
+			}
+			
+			.nav-mini.nav .nav-icon {
+				/* margin-left:-2px; */
+			}
+			
+			.nav-mini.nav .nav-item>a span {
+				display: none;
+			}
+			
+			.nav-mini.nav .nav-more {
+				margin-right: -20px;
+			}
+			
+			.nav-mini.nav .nav-item ul {
+				position: absolute;
+				top: 0px;
+				left: 60px;
+				width: 180px;
+				z-index: 99;
+				background: #144B76;
+				overflow: hidden;
+			}
+			
+			.nav-mini.nav .nav-item:hover {
+				background: rgba(255, 255, 255, .1);
+			}
+			
+			.nav-mini.nav .nav-item:hover .nav-item a {
+				color: #FFF;
+			}
+			
+			.nav-mini.nav .nav-item:hover a:before {
+				opacity: 1;
+			}
+			
+			.nav-mini.nav .nav-item:hover ul {
+				display: block;
+			}
+			
+			li.act {
+				background: #3399FF;
+			}
+			/************************/
+
+
+
+
+
+
+
+		/*分页公用*/
+		.pages{text-align: center;}
+		.page_div {
+				margin-top: 20px;
+				margin-bottom: 20px;
+				font-size: 15px;
+				font-family: "microsoft yahei";
+				color: #666666;
+				margin-right: 10px;
+				padding-left: 20px;
+				box-sizing: border-box;
+			}
+			/*
+			 * 页数按钮样式
+			 */
+			
+			.page_div a {
+				min-width: 40px;
+				border: 1px solid #E3E3E3;
+			    height: 40px;
+			    text-align: center;
+			    margin: 0 4px;
+			    cursor: pointer;
+			    line-height: 40px;
+			    border-radius: 4px;
+			    font-size: 13px;
+			    display: inline-block;
+			}
+			.page_div a:hover{
+				background: #008C5F;
+				color: #fff;
+			}
+			
+			#firstPage,
+			#lastPage {
+				width: 50px;
+				/*color: #0073A9;*/
+				/*border: 1px solid #0073A9!important;*/
+			}
+			
+			#prePage,
+			#nextPage {
+				width: 70px;
+				/*color: #0073A9;*/
+				/*border: 1px solid #0073A9!important;*/
+			}
+			
+			.page_div .current {
+				    background-color: #008C5F;
+				    border-color: #0073A9;
+				    color: #FFFFFF;
+			}
+			
+			.totalPages {
+				margin: 0 10px;
+			}
+			
+			.totalPages span,
+			.totalSize span {
+				color: #0073A9;
+				margin: 0 5px;
+			}
+			/**********************/
+			
+/*
+ * 
+ * 弹框
+ * 
+ * */
+.shade{
+	position: fixed;
+	top: 0;left: 0;right: 0;bottom: 0;
+	background: rgba(0,0,0,.2);
+	z-index: 4;
+	display: none;
+}
+.shadecon{
+	display: none;
+	position: fixed;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 1px 2px 4px #555;
+    overflow: hidden;
+    min-width: 524px;
+    min-height: 220px;
+}
+.stitle{
+	position: relative;
+    text-align: center;
+    line-height: 37px;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+}
+.stitle i{
+	display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(../img/delete.png)no-repeat;
+    background-size: 100% 100%;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+.scenter{padding: 10px 20px 20px;}
+.sformbox{}
+.sformbox p,.sformbox .ftr{margin-top: 15px;}
+.sformbox p>span,.sformbox .ftr>span{
+	width: 102px;
+    display: inline-block;
+    text-align: right;
+    font-size: 14px;
+    vertical-align: top;
+    margin-top: 5px;
+    padding-right: 10px;
+}
+.sformbox p input[type=text],.sformbox .ftr input[type=text]{
+    outline: none;
+    width: 277px;
+    line-height: 30px;
+    border: 1px solid #ddd;
+    padding-left: 8px;
+    border-radius: 4px;
+    }
+.sformbox p textarea,.sformbox .ftr textarea{
+	resize: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 288px;
+    line-height: 22px;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 100px;
+}
+.treeboxx{
+	display: inline-block;
+    max-height: 114px;
+    width: 284px;
+    overflow: auto;
+}
+
+
+.scenter>p{
+	text-align: center;
+    margin-top: 28px;
+}
+.scenter p select, .scenter .ftr select{
+	height: 30px;
+	    border: 1px solid #ddd;
+	    border-radius: 4px;
+	    width: 290px;
+	
+}
+.scenter p lable,.scenter .ftr lable{
+    line-height: 32px;
+    margin-left: 11px;
+}
+.scenter p lable input,.scenter .ftr lable input{
+	vertical-align: middle;
+    margin-right: 3px;
+}
+.formfootbtn{text-align: center;}
+.formfootbtn i{
+	display: inline-block;
+    font-size: 14px;
+    border-radius: 5px;
+    height: 34px;
+    line-height: 34px;
+    width: 80px;
+    letter-spacing: 4px;
+    cursor: pointer;
+    border: 1px solid #B5B5B5;
+    margin-right: 20px;
+    
+}

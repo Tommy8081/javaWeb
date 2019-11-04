@@ -1,0 +1,136 @@
+/*样式start*/
+html{
+	height: 100%;
+    background: url(../img/bg.png)center center no-repeat;
+    background-size: cover;
+    background-position: center center;
+    /*min-width: 1200px;*/
+}
+.logotitle{
+	text-align: center;
+    color: #fff;
+    font-size: 24px;
+    letter-spacing: 9px;
+    margin-top: 1%;
+}
+input::-webkit-input-placeholder{
+            color:#0DBFFB;
+        }
+.loginbigbox{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 503px;
+}
+.loginbox{
+	/*background: url(../img/lobg.png)no-repeat;*/
+	/*background-size: 100% 100%;*/
+	    padding: 12px 75px 48px;
+    margin-top: 18px;}
+.loginbox .lrow{
+	background: url(../img/1.png)no-repeat;
+	background-size: 100% 100%;
+	margin-top: 16px;}
+
+.loginbox .lrow i{
+	display: inline-block;vertical-align: middle;
+	color: #0DBFFB;
+	font-size: 26px;
+    margin-left: 22px;
+	}
+.loginbox .lrow input{vertical-align: middle;
+    line-height: 42px;
+    border: 0;
+    outline: none;
+    padding-left: 12px;
+   
+    width: 292px;
+
+    background: transparent;
+    font-size: 16px;
+    padding: 0;
+    padding-left: 12px;
+    
+    color: #fff;}
+.loginbox .lrow>b{
+	    display: inline-block;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    line-height: 42px;
+    letter-spacing: 6px;
+    font-size: 20px;
+    background: #0871DC;
+    cursor: pointer;
+}
+
+.loginbox .lrow>b:hover{
+	opacity: 0.8;
+}
+.loginbox .lrow .reginp{
+	width: 215px;
+}
+
+.loginbox .lrow .regtext{
+	display: inline-block;
+    width: 124px;
+    /*background: #89CCF7;*/
+    text-align: center;
+    color: #0DBFFB;
+    height: 42px;
+    line-height: 42px;
+    letter-spacing: 8px;
+    font-size: 19px;
+    margin-left: 13px;
+    cursor: pointer;
+}
+.loginbox .lrow .regtext:hover{
+	opacity: 0.8;
+}
+.logostx{
+	font-size: 24px;
+    color: #fff;
+    letter-spacing: 2px;
+    text-align: center;
+}
+.loginbox .lrow2{
+	background: transparent;
+}	
+.loginbox .lrow2 input{
+	background: url(../img/31.png)no-repeat;
+	background-size: 100% 100%;
+	vertical-align: middle;
+	margin-left: 0;
+	padding-left: 22px;
+    box-sizing: border-box;
+}
+.loginbox .lrow2 i{
+	background: url(../img/32.png)no-repeat;
+	background-size: 100% 100%;
+	vertical-align: middle;
+}
+.loginbox .lrowsub{background:transparent;}
+.loginbox>div.act i{
+	color: #fff;
+}
+.loginbox>div.act input::-webkit-input-placeholder{
+    color:#fff;
+}
+.lrow2{
+	position: relative;
+}
+.lrow2 em{
+	position: absolute;
+    top: 0;
+    right: 0;
+    color: #0DBFFB;
+    font-style: normal;
+    width: 122px;
+    line-height: 40px;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
